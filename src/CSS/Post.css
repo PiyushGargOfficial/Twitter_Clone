@@ -12,6 +12,8 @@
 
 .post__body > img {
   border-radius: 20px;
+  object-fit: contain;
+  width: 100%;
 }
 
 .post__footer {

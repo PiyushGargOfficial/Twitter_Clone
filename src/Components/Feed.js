@@ -3,7 +3,7 @@ import TweetBox from "./TweetBox";
 import Post from "./Post";
 import "../CSS/Feed.css";
 import db from "../firebase";
-// import FlipMove from "react-flip-move";
+import FlipMove from "react-flip-move";
 
 function Feed() {
   const [posts, setPosts] = useState([]);
@@ -24,19 +24,21 @@ function Feed() {
       {/* TweetBox */}
       <TweetBox />
       {/* Post */}
-      {/* <FlipMove> */}
-      {posts.map((post) => (
-        <Post
-          key={post.text}
-          displayName={post.displayName}
-          username={post.username}
-          verified={post.verified}
-          text={post.text}
-          avatar={post.avatar}
-          image={post.image}
-        />
-      ))}
-      {/* </FlipMove> */}
+      <FlipMove>
+        {/* Wrapping all the posts inside the animation object */}
+        {posts.map((post) => (
+          <Post
+            //Not the best key to use, but for the sake for the project
+            key={post.text}
+            displayName={post.displayName}
+            username={post.username}
+            verified={post.verified}
+            text={post.text}
+            avatar={post.avatar}
+            image={post.image}
+          />
+        ))}
+      </FlipMove>
     </div>
   );
 }
